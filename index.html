@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Memory</title>
 </head>
@@ -30,16 +31,19 @@
                     <p class="textLevel">Level :</p>
                     <div class="easy">
                         <p class="textEasy">easy</p>
-                        <div class="easyCircle"></div>
+                        <div class="levelBtn easyCircle selected" data-id="easy"></div>
                     </div>
                     <div class="hard">
                         <p class="textHard">hard</p>
-                        <div class="hardCircle"></div>
+                        <div class="levelBtn hardCircle" data-id="hard"></div>
                     </div>
                 </div>
                 <div class="music">
-                    <p>play music</p>
-                    <div class="musicBtn"></div>
+                    <p class="textMusic">Music</pclass>
+                    <div class="musicBtn">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <audio src="./music.mp3"></audio>
                 </div>
                 <button class="btn backSettingsBtn">back</button>
             </section>

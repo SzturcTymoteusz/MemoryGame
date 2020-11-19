@@ -151,7 +151,7 @@ body {
           flex-grow: 1;
   font-size: 40px;
   font-weight: bold;
-  margin: auto;
+  line-height: 95px;
 }
 
 .difficultyLevel .easy {
@@ -183,7 +183,6 @@ body {
   height: 30px;
   border-radius: 15px;
   border: 3px solid black;
-  background-color: #752020;
 }
 
 .difficultyLevel .easy .easyCircle:hover {
@@ -225,9 +224,43 @@ body {
   cursor: pointer;
 }
 
+.difficultyLevel .selected {
+  background-color: #752020;
+}
+
 .music {
   -ms-grid-row: 4;
   -ms-grid-column: 3;
   grid-area: music;
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+}
+
+.music .textMusic {
+  position: absolute;
+  top: 0;
+  left: 100px;
+}
+
+.music .musicBtn {
+  position: absolute;
+  top: 10px;
+  left: 250px;
+  width: 30px;
+  height: 30px;
+  border: 3px solid black;
+}
+
+.music .musicBtn .fas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  display: none;
+}
+
+.music .musicBtn .playMusic {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */

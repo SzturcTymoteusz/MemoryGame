@@ -4,9 +4,12 @@ const startGame = document.querySelector('.startGame');
 const help = document.querySelector('.help');
 const settings = document.querySelector('.settings');
 
+const levelBtn = [...document.querySelectorAll('.levelBtn')];
+const musicBtn = document.querySelector('.musicBtn');
+const audio = document.querySelector('audio');
 
 
-
+let level = 'easy';
 
 btns.forEach((btn)=>{
     btn.addEventListener('click',()=>{
@@ -29,6 +32,25 @@ btns.forEach((btn)=>{
             settings.classList.toggle('show');
             startGame.classList.toggle('show');
         }
-        
     })
+})
+
+levelBtn.forEach((btn)=>{
+    btn.addEventListener('click',(e)=>{
+        levelBtn.forEach((btn)=>{
+            btn.classList.remove('selected');
+        });
+        e.target.classList.add('selected');
+        level = e.target.dataset.id;
+    })
+});
+
+musicBtn.addEventListener('click',(e)=>{
+    const icon = e.currentTarget.children[0]
+    icon.classList.toggle('playMusic');
+    if(icon.classList.contains('playMusic')){
+        audio.play();
+    } else{
+        audio.pause();
+    }
 })
