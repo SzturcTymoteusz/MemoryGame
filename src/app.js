@@ -3,6 +3,7 @@ const btns = [...document.querySelectorAll('.btn')];
 const startGame = document.querySelector('.startGame');
 const help = document.querySelector('.help');
 const settings = document.querySelector('.settings');
+const game = document.querySelector('.game');
 
 const levelBtn = [...document.querySelectorAll('.levelBtn')];
 const musicBtn = document.querySelector('.musicBtn');
@@ -14,7 +15,8 @@ let level = 'easy';
 btns.forEach((btn)=>{
     btn.addEventListener('click',()=>{
         if(btn.classList.contains('newGameBtn')){
-            console.log('NewGame');
+            game.classList.toggle('show');
+            startGame.classList.toggle('show');
         }
         if(btn.classList.contains('settingsBtn')){
             settings.classList.toggle('show');
