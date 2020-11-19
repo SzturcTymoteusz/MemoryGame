@@ -1,0 +1,54 @@
+.settings
+    grid-template-areas: ". . . . ." '. logo logo logo .' '. . level . .' '. . music . .' '. . btn . .' ". . . . ."
+
+.backSettingsBtn
+    grid-area: btn
+    margin: auto
+
+.difficultyLevel
+    grid-area: level
+    display: flex
+    text-align: center
+    .textLevel
+        flex-grow: 1
+        font-size: 40px
+        font-weight: bold
+        margin: auto
+    .easy
+        flex-grow: 1
+        text-transform: uppercase
+        display: flex
+        justify-content: center
+        align-items: center
+        .textEasy
+            flex-grow: 1
+            font-size: 25px
+            font-weight: bold
+        .easyCircle
+            width: 30px
+            height: 30px
+            border-radius: 15px
+            border: 3px solid black
+            background-color: #752020
+            &:hover
+                cursor: pointer
+
+    .hard
+        flex-grow: 1
+        text-transform: uppercase
+        display: flex
+        justify-content: center
+        align-items: center
+        .textHard
+            flex-grow: 1
+            font-size: 25px
+            font-weight: bold
+        .hardCircle
+            width: 30px
+            height: 30px
+            border-radius: 15px
+            border: 3px solid black
+            &:hover
+                cursor: pointer
+.music
+    grid-area: music

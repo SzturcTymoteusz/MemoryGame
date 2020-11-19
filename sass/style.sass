@@ -1,0 +1,47 @@
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body
+    width: 100vw
+    height: 100vh
+
+.container
+    width: 100%
+    min-width: 500px
+    height: 100%
+    min-height: 500px
+    display: grid
+    grid-template-columns: 1fr 1024px 1fr
+    grid-template-rows: 20px 1fr 20px
+    grid-template-areas: ". . ." ". main ." ". . ."
+
+.start-view
+    grid-area: main
+    border: solid 5px black
+    position: relative
+
+.view
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    background-color: #e6d7d7
+    display: grid
+    grid-template-columns: 1fr 150px 400px 150px 1fr
+    grid-template-rows: 1fr 300px 100px 100px 100px 1fr
+
+.memory-logo-img
+    grid-area: logo
+    width: 100%
+    height: 100%
+
+.show
+    z-index: 2
+
+@import _startGame.sass
+@import _startHelp.sass
+@import _startSettings.sass
