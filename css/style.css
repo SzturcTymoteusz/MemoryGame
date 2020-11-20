@@ -277,12 +277,64 @@ body {
       grid-template-areas: '. . . . .' '. gameScreen gameScreen gameScreen .' '. . . . .';
 }
 
-.card-container {
+.card-content {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: gameScreen;
   background-color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 300px;
+  height: 150px;
+  background-color: #ac2929;
+  border-radius: 20px;
+}
+
+.start p {
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  top: 30px;
+  left: 0;
+  color: black;
+}
+
+.start button {
+  position: absolute;
+  bottom: 30px;
+  left: calc( 50% - 50px);
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  background-color: #ffffff;
+  text-transform: capitalize;
+}
+
+.start button:hover {
+  cursor: pointer;
+  background-color: #d89898;
+}
+
+.card-container {
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  z-index: -1;
 }
 
 .show {
