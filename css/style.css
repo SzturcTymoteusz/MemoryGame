@@ -432,10 +432,20 @@ body {
   color: black;
 }
 
-.score button {
+.score .btn-container {
   position: absolute;
   bottom: 30px;
-  left: calc( 50% - 50px);
+  left: calc(50% - 110px);
+  width: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.score button {
   width: 100px;
   height: 40px;
   font-size: 20px;

@@ -10,13 +10,13 @@ const game = document.querySelector('.game');
 const startWindow = document.querySelector('.start');
 const tryAgainWindow = document.querySelector('.score');
 
-console.log(btns);
 
 const buttonOperation = () => {btns.forEach((btn)=>{
     btn.addEventListener('click',()=>{
         if(btn.classList.contains('newGameBtn')){
             game.classList.toggle('show');
             startGame.classList.toggle('show');
+            startWindow.classList.remove('hidden');
             const randomPictures = getRandomPictures();
             randomSetupCard(randomPictures);
         }
@@ -41,11 +41,15 @@ const buttonOperation = () => {btns.forEach((btn)=>{
             openCard();
         }
         if(btn.classList.contains('tryAgain')){
-            console.log('work');
             tryAgainWindow.classList.add('hidden');
             const randomPictures = getRandomPictures();
             randomSetupCard(randomPictures);
             openCard();
+        }
+        if(btn.classList.contains('backToMenu')){
+            game.classList.toggle('show');
+            startGame.classList.toggle('show');
+            tryAgainWindow.classList.add('hidden');
         }
     })
 })};
