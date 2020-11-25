@@ -8,9 +8,7 @@ const level = () => {
                 btn.classList.remove('selected');
             });
             e.target.classList.add('selected');
-            console.log(gameLevel);
             gameLevel = e.target.dataset.id;
-            console.log(gameLevel);
         })
     });
 }

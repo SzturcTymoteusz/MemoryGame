@@ -8,7 +8,7 @@
     background-color: #e6d7d7
     display: grid
     grid-template-columns: 1fr 100px 400px 100px 1fr
-    grid-template-rows: 40px 500px 1fr
+    grid-template-rows: 1fr 520px 1fr
     grid-template-areas: '. . . . .' '. gameScreen gameScreen gameScreen .' '. . . . .'
 
 .card-content
@@ -27,6 +27,8 @@
     height: 150px
     background-color: #ac2929
     border-radius: 20px
+    border: 2px solid black
+    z-index: 1
 
     p
         font-size: 30px
@@ -55,6 +57,54 @@
 .card-container
     width: 100%
     height: 100%
+    display: flex
+    flex-wrap: wrap
+    align-content: flex-start
+    z-index: -1
+
+.card
+    width: 80px
+    height: 90px
+    transition: 1s
+    transform-style: preserve-3d
+    perspective: 1000px
+    margin: 20px
+
+    .face
+        width: 100%
+        height: 100%
+        position: absolute
+        backface-visibility: hidden
+        border: 2px solid black
+        border-radius: 20px
+
+    .front
+        background-color: #643434
+        color: white
+        z-index: 2
+        display: flex
+        align-items: center
+        justify-items: center
+        span
+            display: block
+            font-size: 36px
+            line-height: 36px
+            transform-origin: 45% 70%
+            transform: rotate(-45deg)
+
+    .back
+        transform: rotateY(180deg)
+        background-image: "./images/Table.jpg"
+        img
+            height: 100%
+            width: 100%
+            border-radius: 20px
+
+    &:hover
+        cursor: pointer
+
+.openCard
+    transform: rotateY(180deg)
 
 .hidden
     z-index: -1

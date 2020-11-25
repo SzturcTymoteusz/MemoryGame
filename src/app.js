@@ -5,12 +5,12 @@ import fetchPictures from './fetchPictures.js'
 import {setUpStore} from './store.js'
 
 const init = async () => {
-    buttonOperation();
-    level();
-    music();
-
     const pictures = await fetchPictures();
     setUpStore(pictures);
 }
 
-window.addEventListener('DOMContentLoaded', init)
+window.addEventListener('DOMContentLoaded', init);
+
+buttonOperation();
+level();
+music();

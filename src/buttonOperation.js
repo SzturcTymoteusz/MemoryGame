@@ -1,4 +1,6 @@
-import {getRandomPictures} from './store.js'
+import { randomSetupCard, openCard } from './cardOperation.js';
+import {getRandomPictures} from './store.js';
+
 
 const btns = [...document.querySelectorAll('.btn')];
 const startGame = document.querySelector('.startGame');
@@ -12,6 +14,8 @@ const buttonOperation = () => {btns.forEach((btn)=>{
         if(btn.classList.contains('newGameBtn')){
             game.classList.toggle('show');
             startGame.classList.toggle('show');
+            const randomPictures = getRandomPictures();
+            randomSetupCard(randomPictures);
         }
         if(btn.classList.contains('settingsBtn')){
             settings.classList.toggle('show');
@@ -31,7 +35,8 @@ const buttonOperation = () => {btns.forEach((btn)=>{
         }
         if(btn.classList.contains('startBtn')){
             startWindow.classList.add('hidden');
-            getRandomPictures();
+            openCard();
+
         }
     })
 })};

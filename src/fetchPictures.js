@@ -5,7 +5,7 @@ const  fetchPictures = async () => {
     const newPictures = pictures.map(picture => {
         return {
             id:picture.id,
-            url:picture.url
+            url:picture.download_url
         }
     });
     return newPictures;
