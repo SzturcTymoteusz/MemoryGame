@@ -22,16 +22,19 @@ const getRandomPictures = () => {
         if(randomIndexs.find((index) =>index === randomNumber) === undefined){
             randomIndexs.push(randomNumber);
         } else {
-            do {
-                randomNumber = Math.floor(Math.random()*pictures.length);
-            } while (randomIndexs.find((index) =>index === randomNumber) === undefined);
-            randomIndexs.push(randomNumber);
+            console.log('double');
+            console.log(randomNumber);
+            i--;
+            
         }
     }
+
+    console.log(randomIndexs)
 
     const randomPictures = randomIndexs.map((index) => {
         return pictures[index];
     });
+
     return randomPictures;
 
 }

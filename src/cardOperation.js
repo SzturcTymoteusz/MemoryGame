@@ -58,6 +58,10 @@ const openCard = () => {
 
                         canIClick = true
 
+                        if(!cards.find((card) => card.dataset.opened === 'false')){
+                            console.log('It is finish');
+                        }
+
                     } else{
                         setTimeout(()=>{
                             firstClickedCard.classList.remove('openCard');
@@ -73,8 +77,6 @@ const openCard = () => {
                     }
                 }
 
-
-                console.log(firstClickedCard, secondClickedCard);
             }
 
         })
