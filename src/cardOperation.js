@@ -1,4 +1,7 @@
 const cardContainer = document.querySelector('.card-container');
+const tryAgainWindow = document.querySelector('.score');
+
+
 
 
 const randomSetupCard = (pictures) => {
@@ -60,6 +63,7 @@ const openCard = () => {
 
                         if(!cards.find((card) => card.dataset.opened === 'false')){
                             console.log('It is finish');
+                            tryAgainWindow.classList.remove('hidden');
                         }
 
                     } else{

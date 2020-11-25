@@ -8,6 +8,9 @@ const help = document.querySelector('.help');
 const settings = document.querySelector('.settings');
 const game = document.querySelector('.game');
 const startWindow = document.querySelector('.start');
+const tryAgainWindow = document.querySelector('.score');
+
+console.log(btns);
 
 const buttonOperation = () => {btns.forEach((btn)=>{
     btn.addEventListener('click',()=>{
@@ -36,7 +39,13 @@ const buttonOperation = () => {btns.forEach((btn)=>{
         if(btn.classList.contains('startBtn')){
             startWindow.classList.add('hidden');
             openCard();
-
+        }
+        if(btn.classList.contains('tryAgain')){
+            console.log('work');
+            tryAgainWindow.classList.add('hidden');
+            const randomPictures = getRandomPictures();
+            randomSetupCard(randomPictures);
+            openCard();
         }
     })
 })};
