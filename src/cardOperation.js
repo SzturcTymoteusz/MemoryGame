@@ -74,6 +74,7 @@ const openCard = () => {
                             setTimeout(() => {
                                 tryAgainWindow.classList.remove('hidden');
                                 timerStop();
+                                firstClick = false;
                             }, 1000)
                         }
 

@@ -21,11 +21,14 @@ let canICount = true
 
 const displayTimer = () => {
     const time = setInterval(() => {
+        timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
+
         if(!canICount){
             clearInterval(time);
+            canICount = true;
+            secs = 0;
+            mins = 0;
         }
-
-        timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
 
         if(secs === 60){
             secs = 0;
