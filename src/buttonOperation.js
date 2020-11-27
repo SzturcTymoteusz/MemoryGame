@@ -11,6 +11,8 @@ const game = document.querySelector('.game');
 const startWindow = document.querySelector('.start');
 const tryAgainWindow = document.querySelector('.score');
 const stepsContainerText = document.querySelector('.stepsContainerText');
+const timeContainerText = document.querySelector('.timeContainerText');
+
 
 
 
@@ -58,6 +60,7 @@ const buttonOperation = () => {btns.forEach((btn)=>{
             randomSetupCard(randomPictures);
             openCard();
             stepsContainerText.textContent = '0';
+            timeContainerText.textContent = '0:00';
         }
 
         if(btn.classList.contains('backToMenu')){

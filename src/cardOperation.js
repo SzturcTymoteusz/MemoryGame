@@ -1,4 +1,4 @@
-import {displaySteps} from './additionalFeatures.js';
+import {displaySteps, displayTimer, timerStop} from './additionalFeatures.js';
 
 const cardContainer = document.querySelector('.card-container');
 const tryAgainWindow = document.querySelector('.score');
@@ -40,9 +40,14 @@ const openCard = () => {
     let firstClickedCard = undefined;
     let secondClickedCard = undefined;
     let canIClick = true;
+    let firstClick = false;
+
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
             const clickedCard = e.currentTarget;
+
+            if(!firstClick){displayTimer()}
+            firstClick = true;
 
             if(clickedCard.dataset.opened === 'false' && canIClick){
                 clickedCard.classList.add('openCard');
@@ -68,6 +73,7 @@ const openCard = () => {
                         if(!cards.find((card) => card.dataset.opened === 'false')){
                             setTimeout(() => {
                                 tryAgainWindow.classList.remove('hidden');
+                                timerStop();
                             }, 1000)
                         }
 
