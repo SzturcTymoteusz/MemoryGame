@@ -361,8 +361,6 @@ body {
   position: absolute;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  border: 2px solid black;
-  border-radius: 20px;
 }
 
 .card .front {
@@ -376,6 +374,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 .card .front span {
@@ -389,15 +389,24 @@ body {
 }
 
 .card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background-image: "./images/Table.jpg";
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0px;
+  margin: 0;
 }
 
 .card .back img {
-  height: 100%;
-  width: 100%;
-  border-radius: 20px;
+  height: 86px;
+  width: 75.5px;
+  border-radius: 19px;
 }
 
 .card:hover {
@@ -415,12 +424,17 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 300px;
-  height: 150px;
+  width: 350px;
+  height: 230px;
   background-color: #ac2929;
   border-radius: 20px;
   border: 2px solid black;
   z-index: 2;
+}
+
+.score p:first-child {
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .score p {
@@ -485,6 +499,13 @@ body {
   background-color: white;
   border: 3px solid black;
   margin: 10px;
+}
+
+.displayContainer .bestScore {
+  -ms-flex-preferred-size: 120px;
+      flex-basis: 120px;
+  line-height: 60px;
+  margin: 40px 10px;
 }
 
 .hidden {

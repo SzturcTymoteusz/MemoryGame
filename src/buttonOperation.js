@@ -1,6 +1,6 @@
 import { randomSetupCard, openCard } from './cardOperation.js';
 import {getRandomPictures} from './store.js';
-import {displayLevel} from './additionalFeatures.js'
+import {displayLevel, initBestTime} from './additionalFeatures.js'
 
 
 const btns = [...document.querySelectorAll('.btn')];
@@ -27,6 +27,7 @@ const buttonOperation = () => {btns.forEach((btn)=>{
             displayLevel();
 
             stepsContainerText.textContent = '0';
+            initBestTime();
         }
 
         if(btn.classList.contains('settingsBtn')){

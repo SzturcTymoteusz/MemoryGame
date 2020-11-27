@@ -1,4 +1,4 @@
-import {displaySteps, displayTimer, timerStop} from './additionalFeatures.js';
+import {displaySteps, displayTimer, timerStop, displayScore} from './additionalFeatures.js';
 
 const cardContainer = document.querySelector('.card-container');
 const tryAgainWindow = document.querySelector('.score');
@@ -75,6 +75,7 @@ const openCard = () => {
                                 tryAgainWindow.classList.remove('hidden');
                                 timerStop();
                                 firstClick = false;
+                                displayScore();
                             }, 1000)
                         }
 

@@ -75,8 +75,8 @@
         height: 100%
         position: absolute
         backface-visibility: hidden
-        border: 2px solid black
-        border-radius: 20px
+        // border: 2px solid black
+        // border-radius: 20px
 
     .front
         background-color: #643434
@@ -85,6 +85,8 @@
         display: flex
         align-items: center
         justify-items: center
+        border: 2px solid black
+        border-radius: 20px
         span
             display: block
             font-size: 36px
@@ -93,12 +95,20 @@
             transform: rotate(-45deg)
 
     .back
+        position: absolute
+        top: 0
+        left: 0
+        box-sizing: border-box
         transform: rotateY(180deg)
         background-image: "./images/Table.jpg"
+        border: 2px solid black
+        border-radius: 20px
+        padding: 0px
+        margin: 0
         img
-            height: 100%
-            width: 100%
-            border-radius: 20px
+            height: 86px
+            width: 75.5px
+            border-radius: 19px
 
     &:hover
         cursor: pointer
@@ -111,12 +121,16 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    width: 300px
-    height: 150px
+    width: 350px
+    height: 230px
     background-color: #ac2929
     border-radius: 20px
     border: 2px solid black
     z-index: 2
+
+    p:first-child
+        font-size: 40px
+        font-weight: bold
 
     p
         font-size: 30px
@@ -162,6 +176,11 @@
         background-color: white
         border: 3px solid black
         margin: 10px
+
+    .bestScore
+        flex-basis: 120px
+        line-height: 60px
+        margin: 40px 10px
 
 .hidden
     z-index: -1
