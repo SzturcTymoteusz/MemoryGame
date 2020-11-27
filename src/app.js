@@ -7,10 +7,10 @@ import {setUpStore} from './store.js'
 const init = async () => {
     const pictures = await fetchPictures();
     setUpStore(pictures);
+    buttonOperation();
+    level();
+    music();
 }
 
 window.addEventListener('DOMContentLoaded', init);
 
-buttonOperation();
-level();
-music();

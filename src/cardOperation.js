@@ -1,3 +1,5 @@
+import {displaySteps} from './additionalFeatures.js';
+
 const cardContainer = document.querySelector('.card-container');
 const tryAgainWindow = document.querySelector('.score');
 
@@ -52,6 +54,8 @@ const openCard = () => {
                     secondClickedCard = clickedCard;
                     canIClick = false;
 
+                    displaySteps();
+
                     if(firstClickedCard.id === secondClickedCard.id){
                         firstClickedCard.dataset.opened = 'true';
                         secondClickedCard.dataset.opened = 'true';
@@ -62,7 +66,9 @@ const openCard = () => {
                         canIClick = true
 
                         if(!cards.find((card) => card.dataset.opened === 'false')){
-                            tryAgainWindow.classList.remove('hidden');
+                            setTimeout(() => {
+                                tryAgainWindow.classList.remove('hidden');
+                            }, 1000)
                         }
 
                     } else{

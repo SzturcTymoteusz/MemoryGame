@@ -270,11 +270,11 @@ body {
   background-color: #e6d7d7;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 100px 400px 100px 1fr;
-      grid-template-columns: 1fr 100px 400px 100px 1fr;
+  -ms-grid-columns: 2fr 100px 400px 100px 1fr;
+      grid-template-columns: 2fr 100px 400px 100px 1fr;
   -ms-grid-rows: 1fr 520px 1fr;
       grid-template-rows: 1fr 520px 1fr;
-      grid-template-areas: '. . . . .' '. gameScreen gameScreen gameScreen .' '. . . . .';
+      grid-template-areas: '. . . . .' 'display gameScreen gameScreen gameScreen .' '. . . . .';
 }
 
 .card-content {
@@ -459,6 +459,32 @@ body {
 .score button:hover {
   cursor: pointer;
   background-color: #d89898;
+}
+
+.displayContainer {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: display;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
+.displayContainer .display {
+  -ms-flex-preferred-size: 40px;
+      flex-basis: 40px;
+  font-size: 25px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: white;
+  border: 3px solid black;
+  margin: 10px;
 }
 
 .hidden {
