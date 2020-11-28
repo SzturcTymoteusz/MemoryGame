@@ -4,10 +4,10 @@
     position: absolute
     top: 0
     left: 0
-    z-index: 1
-    background-color: #e6d7d7
+    z-index: -1
+    background-color: #6e8c7f
     display: grid
-    grid-template-columns: 2fr 100px 400px 100px 1fr
+    grid-template-columns: 1fr 100px 400px 100px 60px
     grid-template-rows: 1fr 520px 1fr
     grid-template-areas: '. . . . .' 'display gameScreen gameScreen gameScreen .' '. . . . .'
 
@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%)
     width: 300px
     height: 150px
-    background-color: #ac2929
+    background-color: #6e8c7f
     border-radius: 20px
     border: 2px solid black
     z-index: 2
@@ -52,7 +52,7 @@
         text-transform: capitalize
         &:hover
             cursor: pointer
-            background-color: #d89898
+            background-color: #a1a0a0
 
 .card-container
     width: 100%
@@ -75,11 +75,9 @@
         height: 100%
         position: absolute
         backface-visibility: hidden
-        // border: 2px solid black
-        // border-radius: 20px
 
     .front
-        background-color: #643434
+        background-color: #4d524e
         color: white
         z-index: 2
         display: flex
@@ -87,6 +85,7 @@
         justify-items: center
         border: 2px solid black
         border-radius: 20px
+        will-change: transform
         span
             display: block
             font-size: 36px
@@ -95,20 +94,20 @@
             transform: rotate(-45deg)
 
     .back
-        position: absolute
-        top: 0
-        left: 0
         box-sizing: border-box
         transform: rotateY(180deg)
-        background-image: "./images/Table.jpg"
-        border: 2px solid black
-        border-radius: 20px
-        padding: 0px
-        margin: 0
+        padding: 1px
+        position: relative
+        padding: 1px
+        will-change: transform
         img
-            height: 86px
-            width: 75.5px
-            border-radius: 19px
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            border: 2px solid black
+            border-radius: 20px
 
     &:hover
         cursor: pointer
@@ -123,7 +122,7 @@
     transform: translate(-50%, -50%)
     width: 350px
     height: 230px
-    background-color: #ac2929
+    background-color: #6e8c7f
     border-radius: 20px
     border: 2px solid black
     z-index: 2
@@ -159,12 +158,13 @@
         text-transform: capitalize
         &:hover
             cursor: pointer
-            background-color: #d89898
+            background-color: #9e9b9b
 
 .displayContainer
     grid-area: display
     display: flex
     flex-direction: column
+    justify-content: space-between
     margin-top: 20px
 
     .display
@@ -175,12 +175,12 @@
         text-transform: uppercase
         background-color: white
         border: 3px solid black
-        margin: 10px
+        margin: 10px 40px
 
     .bestScore
         flex-basis: 120px
         line-height: 60px
-        margin: 40px 10px
+        margin: 40px 40px
 
 .hidden
     z-index: -1

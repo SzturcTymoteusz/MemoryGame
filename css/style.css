@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  border: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -22,6 +23,8 @@ body {
   -ms-grid-rows: 20px 1fr 20px;
       grid-template-rows: 20px 1fr 20px;
       grid-template-areas: ". . ." ". main ." ". . .";
+  background-image: url("/images/background1.jpg");
+  background-size: auto;
 }
 
 .start-view {
@@ -39,7 +42,8 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #e6d7d7;
+  background-color: #aaaaaa;
+  background-color: rgba(255, 255, 255, 0.7);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 150px 400px 150px 1fr;
@@ -59,6 +63,7 @@ body {
 
 .startGame {
       grid-template-areas: ". . . . ." '. logo logo logo .' '. . option . .' '. . option . .' '. . option . .' ". . . . .";
+  z-index: -1;
 }
 
 .btns-container {
@@ -83,7 +88,7 @@ body {
 .btn {
   width: 250px;
   height: 80px;
-  background-color: #db8a8a;
+  background-color: rgba(137, 148, 132, 0.79);
   border-radius: 30px;
   border: 2px solid black;
   text-transform: uppercase;
@@ -94,11 +99,12 @@ body {
 
 .btn:hover {
   cursor: pointer;
-  background-color: #b96363;
+  background-color: #7c8b76;
 }
 
 .help {
       grid-template-areas: ". . . . ." '. logo logo logo .' '. content content content .' '. content content content .' '. . btn . .' ". . . . .";
+  z-index: -1;
 }
 
 .option-help {
@@ -122,6 +128,7 @@ body {
 
 .settings {
       grid-template-areas: ". . . . ." '. logo logo logo .' '. . level . .' '. . music . .' '. . btn . .' ". . . . .";
+  z-index: -1;
 }
 
 .backSettingsBtn {
@@ -221,7 +228,7 @@ body {
 }
 
 .difficultyLevel .selected {
-  background-color: #752020;
+  background-color: #000000;
 }
 
 .music {
@@ -266,12 +273,12 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  background-color: #e6d7d7;
+  z-index: -1;
+  background-color: #6e8c7f;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 100px 400px 100px 1fr;
-      grid-template-columns: 2fr 100px 400px 100px 1fr;
+  -ms-grid-columns: 1fr 100px 400px 100px 60px;
+      grid-template-columns: 1fr 100px 400px 100px 60px;
   -ms-grid-rows: 1fr 520px 1fr;
       grid-template-rows: 1fr 520px 1fr;
       grid-template-areas: '. . . . .' 'display gameScreen gameScreen gameScreen .' '. . . . .';
@@ -296,7 +303,7 @@ body {
           transform: translate(-50%, -50%);
   width: 300px;
   height: 150px;
-  background-color: #ac2929;
+  background-color: #6e8c7f;
   border-radius: 20px;
   border: 2px solid black;
   z-index: 2;
@@ -327,7 +334,7 @@ body {
 
 .start button:hover {
   cursor: pointer;
-  background-color: #d89898;
+  background-color: #a1a0a0;
 }
 
 .card-container {
@@ -364,7 +371,7 @@ body {
 }
 
 .card .front {
-  background-color: #643434;
+  background-color: #4d524e;
   color: white;
   z-index: 2;
   display: -webkit-box;
@@ -376,6 +383,7 @@ body {
   justify-items: center;
   border: 2px solid black;
   border-radius: 20px;
+  will-change: transform;
 }
 
 .card .front span {
@@ -389,24 +397,24 @@ body {
 }
 
 .card .back {
-  position: absolute;
-  top: 0;
-  left: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-image: "./images/Table.jpg";
-  border: 2px solid black;
-  border-radius: 20px;
-  padding: 0px;
-  margin: 0;
+  padding: 1px;
+  position: relative;
+  padding: 1px;
+  will-change: transform;
 }
 
 .card .back img {
-  height: 86px;
-  width: 75.5px;
-  border-radius: 19px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 .card:hover {
@@ -426,7 +434,7 @@ body {
           transform: translate(-50%, -50%);
   width: 350px;
   height: 230px;
-  background-color: #ac2929;
+  background-color: #6e8c7f;
   border-radius: 20px;
   border: 2px solid black;
   z-index: 2;
@@ -472,7 +480,7 @@ body {
 
 .score button:hover {
   cursor: pointer;
-  background-color: #d89898;
+  background-color: #9e9b9b;
 }
 
 .displayContainer {
@@ -486,6 +494,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -498,14 +509,14 @@ body {
   text-transform: uppercase;
   background-color: white;
   border: 3px solid black;
-  margin: 10px;
+  margin: 10px 40px;
 }
 
 .displayContainer .bestScore {
   -ms-flex-preferred-size: 120px;
       flex-basis: 120px;
   line-height: 60px;
-  margin: 40px 10px;
+  margin: 40px 40px;
 }
 
 .hidden {

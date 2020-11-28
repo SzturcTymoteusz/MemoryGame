@@ -27,7 +27,7 @@ const displayCard = (pictures) => {
                 <span>Game</span>
             </div>
             <div class="face back">
-                <img src=${picture.url}>
+                <img class="img" src=${picture.url}>
             </div>
         </div>
         `

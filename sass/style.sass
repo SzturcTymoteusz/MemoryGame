@@ -1,6 +1,7 @@
 *
     padding: 0
     margin: 0
+    border: none
     box-sizing: border-box
 
 body
@@ -16,6 +17,8 @@ body
     grid-template-columns: 1fr 1024px 1fr
     grid-template-rows: 20px 1fr 20px
     grid-template-areas: ". . ." ". main ." ". . ."
+    background-image: url("/images/background1.jpg")
+    background-size: auto
 
 .start-view
     grid-area: main
@@ -29,7 +32,8 @@ body
     top: 0
     left: 0
     z-index: 1
-    background-color: #e6d7d7
+    background-color: #aaaaaa
+    background-color: rgba(255, 255, 255, 0.7)
     display: grid
     grid-template-columns: 1fr 150px 400px 150px 1fr
     grid-template-rows: 1fr 300px 100px 100px 100px 1fr

@@ -1,5 +1,6 @@
 .startGame
     grid-template-areas: ". . . . ." '. logo logo logo .' '. . option . .' '. . option . .' '. . option . .' ". . . . ."
+    z-index: -1
 
 .btns-container
     grid-area: option
@@ -11,7 +12,7 @@
 .btn
     width: 250px
     height: 80px
-    background-color: #db8a8a
+    background-color: rgba(137, 148, 132, 0.79)
     border-radius: 30px
     border: 2px solid black
     text-transform: uppercase
@@ -21,4 +22,4 @@
 
     &:hover
         cursor: pointer
-        background-color: #b96363
+        background-color: rgb(124, 139, 118)
