@@ -4,7 +4,7 @@
 
 This project is a simple memory game. The object of the game is to find all pairs of matching cards.
 
-## Technologies:
+## Technologies
 
 -   HTML5
 -   CSS3 (Preprocessor SASS)
