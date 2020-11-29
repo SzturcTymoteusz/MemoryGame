@@ -1,6 +1,8 @@
 import { randomSetupCard, openCard } from './cardOperation.js';
 import {getRandomPictures} from './store.js';
-import {displayLevel, initBestTime} from './additionalFeatures.js'
+import {displayLevel, initBestTime, timerStop} from './additionalFeatures.js'
+
+
 
 
 const btns = [...document.querySelectorAll('.btn')];
@@ -60,6 +62,7 @@ const buttonOperation = () => {btns.forEach((btn)=>{
             const randomPictures = getRandomPictures();
             randomSetupCard(randomPictures);
             openCard();
+            timerStop();
             stepsContainerText.textContent = '0';
             timeContainerText.textContent = '0:00';
         }
@@ -68,6 +71,10 @@ const buttonOperation = () => {btns.forEach((btn)=>{
             game.classList.toggle('show');
             startGame.classList.toggle('show');
             tryAgainWindow.classList.add('hidden');
+
+            timerStop();
+            stepsContainerText.textContent = '0';
+            timeContainerText.textContent = '0:00';
         }
     })
 })};

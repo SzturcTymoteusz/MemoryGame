@@ -10,6 +10,7 @@ const bestScoreText = document.querySelector('.bestScore');
 
 
 
+
 const displayLevel = () => {
     levelContainerText.textContent = gameLevel;
 }
@@ -41,6 +42,8 @@ const displayTimer = () => {
         if(!canICount){
             clearInterval(time);
             canICount = true;
+            stepsContainerText.textContent = '0';
+            timeContainerText.textContent = '0:00';
             secs = 0;
             mins = 0;
         }
