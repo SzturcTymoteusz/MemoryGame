@@ -6,10 +6,10 @@ This project is a simple memory game. The object of the game is to find all pair
 
 ## Technologies:
 
--   [HTML5]
--   [CSS3]
--   [JavaScript]
+-   HTML5
+-   CSS3
+-   JavaScript
 
 ## Setup
 
-TO run this project, open link and enjoy the game.
+T run this project, open link and enjoy the game.
