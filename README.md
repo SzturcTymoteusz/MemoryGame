@@ -7,9 +7,9 @@ This project is a simple memory game. The object of the game is to find all pair
 ## Technologies:
 
 -   HTML5
--   CSS3
--   JavaScript
+-   CSS3 (Preprocessor SASS)
+-   JavaScript (Vanilla JS)
 
 ## Setup
 
-T run this project, open link and enjoy the game.
+To run this project, open link and enjoy the game.
