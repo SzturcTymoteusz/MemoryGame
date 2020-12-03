@@ -27,7 +27,12 @@ const displaySteps = () => {
 }
 
 
-
+const clearTimer = () => {
+    stepsContainerText.textContent = '0';
+    timeContainerText.textContent = '0:00';
+    secs = 0;
+    mins = 0;
+}
 
 
 
@@ -37,22 +42,22 @@ let canICount = true
 
 const displayTimer = () => {
     const time = setInterval(() => {
-        timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
-
         if(!canICount){
             clearInterval(time);
             canICount = true;
-            stepsContainerText.textContent = '0';
-            timeContainerText.textContent = '0:00';
-            secs = 0;
-            mins = 0;
+            return;
         }
+
+        timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
+
+        console.log(timeContainerText.textContent, 1);
 
         if(secs === 60){
             secs = 0;
             mins++;
         }
         secs++;
+        console.log(timeContainerText.textContent, 2);
     }, 1000)
 }
 
@@ -87,11 +92,11 @@ const displayBestScore = ({secs, mins, steps}) =>{
 
 const displayScore = () => {
     const steps = stepsContainerText.textContent;
-    const time = `${mins}:${secs<10?`0${secs}`:secs}`;
+    const time = `${timeContainerText.textContent}`;
 
     scoreText.innerHTML = `<strong>Time:</strong> ${time}  <strong>Steps:</strong> ${steps}`;
 
-    displayBestScore({secs ,mins ,steps});
+    displayBestScore({secs: secs - 1 ,mins ,steps});
 }
 
 const initBestTime = () => {
@@ -117,5 +122,6 @@ export {
     timerStop,
     displayScore,
     resetBestTime,
-    initBestTime
+    initBestTime,
+    clearTimer
 }

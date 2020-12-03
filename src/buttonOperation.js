@@ -1,6 +1,6 @@
 import { randomSetupCard, openCard } from './cardOperation.js';
 import {getRandomPictures} from './setupLocalStorage.js';
-import {displayLevel, initBestTime} from './additionalFeatures.js'
+import {displayLevel, initBestTime, clearTimer} from './additionalFeatures.js'
 
 
 const allBtns = [...document.querySelectorAll('.btn')];
@@ -45,6 +45,7 @@ const buttonOperation = () => {
                 randomSetupCard(randomPictures);
 
                 displayCurrentScore();
+                clearTimer();
             }
 
             if(btn.classList.contains('settingsBtn')) displayView(btn);
@@ -70,6 +71,7 @@ const buttonOperation = () => {
                 randomSetupCard(randomPictures);
 
                 openCard();
+                clearTimer();
             }
 
             if(btn.classList.contains('backToMenu')){

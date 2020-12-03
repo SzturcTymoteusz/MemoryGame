@@ -36,12 +36,13 @@ const displayCard = (pictures) => {
 };
 
 const finishGame = (firstClick) => {
+    console.log('stop');
+    timerStop();
     setTimeout(() => {
         tryAgainWindow.classList.remove('hidden');
         firstClick = false;
 
         displayScore();
-        timerStop();
         return;
     }, 700)
 }
@@ -56,6 +57,8 @@ const openCard = () => {
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
             const clickedCard = e.currentTarget;
+
+            if(!canIClick) return
 
             // first open card will start the counter
             if(!firstClick){
@@ -78,26 +81,27 @@ const openCard = () => {
             canIClick = false;
             displaySteps()
 
-            // Match
-            if(firstClickedCard.id === secondClickedCard.id){
-                setTimeout(() => {
+            setTimeout(() => {
+
+                // Match
+                if(firstClickedCard.id === secondClickedCard.id){
                     firstClickedCard.dataset.opened = 'true';
                     secondClickedCard.dataset.opened = 'true';
+
+                    //Check all cards, maybe user finished game
+                    const closedCard = cards.filter(card => card.dataset.opened === 'false');
+                    (closedCard[0] === undefined) ? finishGame(firstClick) : null;
 
                     firstClickedCard = undefined;
                     secondClickedCard = undefined;
 
                     canIClick = true;
 
-                    //Check all cards, maybe user finished game
-                    const closedCard = cards.filter(card => card.dataset.opened === 'false');
-                    (closedCard[0] === undefined) ? finishGame(firstClick) : null;
-                    return;
-                }, 700)
-            }
 
-            // No match
-            setTimeout(()=>{
+                    return;
+                }
+
+                // No match
                 firstClickedCard.classList.remove('openCard');
                 secondClickedCard.classList.remove('openCard');
 
