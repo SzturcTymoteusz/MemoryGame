@@ -50,14 +50,11 @@ const displayTimer = () => {
 
         timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
 
-        console.log(timeContainerText.textContent, 1);
-
         if(secs === 60){
             secs = 0;
             mins++;
         }
         secs++;
-        console.log(timeContainerText.textContent, 2);
     }, 1000)
 }
 
