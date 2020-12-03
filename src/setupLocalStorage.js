@@ -1,19 +1,14 @@
 import {gameLevel} from './level.js';
 
-const setUpStore = (pictures) => {
+const setUpLocalStorage = (pictures) => {
     localStorage.setItem('pictures', JSON.stringify(pictures))
 }
 
 const getRandomPictures = () => {
     const pictures = JSON.parse(localStorage.getItem('pictures'));
-    let numberPairCards = 0;
+    const numberPairCards = (gameLevel === "easy")? 6 : 10;
     let randomIndexs = [];
 
-    if(gameLevel === "easy"){
-        numberPairCards = 6
-    } else{
-        numberPairCards = 10
-    }
 
     // get random pictures
     for(let i = 0; i < numberPairCards; i++){
@@ -26,16 +21,13 @@ const getRandomPictures = () => {
         }
     }
 
-    const randomPictures = randomIndexs.map((index) => {
-        return pictures[index];
-    });
+    const randomPictures = randomIndexs.map((index) => pictures[index]);
 
     return randomPictures;
-
 }
 
 
 export {
-    setUpStore,
+    setUpLocalStorage,
     getRandomPictures
 }

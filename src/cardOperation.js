@@ -33,6 +33,17 @@ const displayCard = (pictures) => {
         `
     }).join('');
 
+};
+
+const finishGame = (firstClick) => {
+    setTimeout(() => {
+        tryAgainWindow.classList.remove('hidden');
+        firstClick = false;
+
+        displayScore();
+        timerStop();
+        return;
+    }, 700)
 }
 
 const openCard = () => {
@@ -46,59 +57,59 @@ const openCard = () => {
         card.addEventListener('click', (e) => {
             const clickedCard = e.currentTarget;
 
-            if(!firstClick){displayTimer()}
-            firstClick = true;
+            // first open card will start the counter
+            if(!firstClick){
+                displayTimer()
+                firstClick = true;
+            }
 
+            //opening cards and assigment them to variable
             if(clickedCard.dataset.opened === 'false' && canIClick){
                 clickedCard.classList.add('openCard');
 
-                if(!firstClickedCard){
-                    firstClickedCard = clickedCard;
-
-                } else{
-                    secondClickedCard = clickedCard;
-                    canIClick = false;
-
-                    displaySteps();
-
-                    if(firstClickedCard.id === secondClickedCard.id){
-                        firstClickedCard.dataset.opened = 'true';
-                        secondClickedCard.dataset.opened = 'true';
-
-                        firstClickedCard = undefined;
-                        secondClickedCard = undefined;
-
-                        canIClick = true
-
-                        if(!cards.find((card) => card.dataset.opened === 'false')){
-                            setTimeout(() => {
-                                tryAgainWindow.classList.remove('hidden');
-                                timerStop();
-                                firstClick = false;
-                                displayScore();
-                            }, 1000)
-                        }
-
-                    } else{
-                        setTimeout(()=>{
-                            firstClickedCard.classList.remove('openCard');
-                            secondClickedCard.classList.remove('openCard');
-
-                            firstClickedCard = undefined;
-                            secondClickedCard = undefined;
-
-                            canIClick = true
-
-
-                        }, 1000)
-                    }
-                }
+                secondClickedCard = (firstClickedCard) ? clickedCard : secondClickedCard;
+                firstClickedCard = (!firstClickedCard) ? clickedCard : firstClickedCard;
 
             }
 
+            // check value chosen cards
+            if(!firstClickedCard || !secondClickedCard) return;
+
+            canIClick = false;
+            displaySteps()
+
+            // Match
+            if(firstClickedCard.id === secondClickedCard.id){
+                setTimeout(() => {
+                    firstClickedCard.dataset.opened = 'true';
+                    secondClickedCard.dataset.opened = 'true';
+
+                    firstClickedCard = undefined;
+                    secondClickedCard = undefined;
+
+                    canIClick = true;
+
+                    //Check all cards, maybe user finished game
+                    const closedCard = cards.filter(card => card.dataset.opened === 'false');
+                    (closedCard[0] === undefined) ? finishGame(firstClick) : null;
+                    return;
+                }, 700)
+            }
+
+            // No match
+            setTimeout(()=>{
+                firstClickedCard.classList.remove('openCard');
+                secondClickedCard.classList.remove('openCard');
+
+                firstClickedCard = undefined;
+                secondClickedCard = undefined;
+
+                canIClick = true
+            }, 700)
         })
     })
 }
+
 
 
 export {

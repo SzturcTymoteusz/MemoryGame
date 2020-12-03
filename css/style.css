@@ -24,6 +24,7 @@ body {
       grid-template-rows: 20px 1fr 20px;
       grid-template-areas: ". . ." ". main ." ". . .";
   position: relative;
+  z-index: 1;
 }
 
 .container img {
@@ -68,7 +69,7 @@ body {
   height: 100%;
 }
 
-.startGame {
+.menu {
       grid-template-areas: ". . . . ." '. logo logo logo .' '. . option . .' '. . option . .' '. . option . .' ". . . . .";
   z-index: -1;
 }
@@ -126,7 +127,7 @@ body {
   margin: auto;
 }
 
-.backBtn {
+.backBtnHelp {
   -ms-grid-row: 5;
   -ms-grid-column: 3;
   grid-area: btn;
@@ -138,7 +139,7 @@ body {
   z-index: -1;
 }
 
-.backSettingsBtn {
+.backBtnSettings {
   -ms-grid-row: 5;
   -ms-grid-column: 3;
   grid-area: btn;
@@ -360,8 +361,8 @@ body {
 .card {
   width: 80px;
   height: 90px;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-perspective: 1000px;

@@ -1,16 +1,12 @@
 import { randomSetupCard, openCard } from './cardOperation.js';
-import {getRandomPictures} from './store.js';
-import {displayLevel, initBestTime, timerStop} from './additionalFeatures.js'
+import {getRandomPictures} from './setupLocalStorage.js';
+import {displayLevel, initBestTime} from './additionalFeatures.js'
 
 
+const allBtns = [...document.querySelectorAll('.btn')];
+const allViews = [...document.querySelectorAll('.view')]
 
-
-const btns = [...document.querySelectorAll('.btn')];
-const startGame = document.querySelector('.startGame');
-const help = document.querySelector('.help');
-const settings = document.querySelector('.settings');
-const game = document.querySelector('.game');
-const startWindow = document.querySelector('.start');
+const readyWindow = document.querySelector('.start');
 const tryAgainWindow = document.querySelector('.score');
 const stepsContainerText = document.querySelector('.stepsContainerText');
 const timeContainerText = document.querySelector('.timeContainerText');
@@ -18,65 +14,70 @@ const timeContainerText = document.querySelector('.timeContainerText');
 
 
 
-const buttonOperation = () => {btns.forEach((btn)=>{
-    btn.addEventListener('click',()=>{
-        if(btn.classList.contains('newGameBtn')){
-            game.classList.toggle('show');
-            startGame.classList.toggle('show');
-            startWindow.classList.remove('hidden');
-            const randomPictures = getRandomPictures();
-            randomSetupCard(randomPictures);
-            displayLevel();
 
-            stepsContainerText.textContent = '0';
-            initBestTime();
-        }
+const displayView = (clickedView) => {
+    allViews.forEach(item => item.classList.remove('show'));
 
-        if(btn.classList.contains('settingsBtn')){
-            settings.classList.toggle('show');
-            startGame.classList.toggle('show');
-        }
+    const view = document.querySelector(`.${clickedView.dataset.id}`);
 
-        if(btn.classList.contains('helpBtn')){
-            help.classList.toggle('show');
-            startGame.classList.toggle('show');
-        }
+    view.classList.add('show');
+}
 
-        if(btn.classList.contains('backBtn')){
-            help.classList.toggle('show');
-            startGame.classList.toggle('show');
-        }
+const displayCurrentScore = () => {
+    displayLevel();
+    initBestTime();
 
-        if(btn.classList.contains('backSettingsBtn')){
-            settings.classList.toggle('show');
-            startGame.classList.toggle('show');
-        }
+    stepsContainerText.textContent = '0';
+    timeContainerText.textContent = '0:00';
+}
 
-        if(btn.classList.contains('startBtn')){
-            startWindow.classList.add('hidden');
-            openCard();
-        }
 
-        if(btn.classList.contains('tryAgain')){
-            tryAgainWindow.classList.add('hidden');
-            const randomPictures = getRandomPictures();
-            randomSetupCard(randomPictures);
-            openCard();
-            timerStop();
-            stepsContainerText.textContent = '0';
-            timeContainerText.textContent = '0:00';
-        }
+const buttonOperation = () => {
+    allBtns.forEach((btn)=>{
+        btn.addEventListener('click', () => {
 
-        if(btn.classList.contains('backToMenu')){
-            game.classList.toggle('show');
-            startGame.classList.toggle('show');
-            tryAgainWindow.classList.add('hidden');
+            // menu view btns
+            if(btn.classList.contains('newGameBtn')){
+                displayView(btn);
+                readyWindow.classList.remove('hidden');
 
-            timerStop();
-            stepsContainerText.textContent = '0';
-            timeContainerText.textContent = '0:00';
-        }
-    })
-})};
+                const randomPictures = getRandomPictures();
+                randomSetupCard(randomPictures);
+
+                displayCurrentScore();
+            }
+
+            if(btn.classList.contains('settingsBtn')) displayView(btn);
+
+            if(btn.classList.contains('helpBtn')) displayView(btn);
+
+            // help view btns
+            if(btn.classList.contains('backBtnHelp')) displayView(btn);
+
+            // settings view btns
+            if(btn.classList.contains('backBtnSettings')) displayView(btn);
+
+            // game view btns
+            if(btn.classList.contains('startBtn')){
+                readyWindow.classList.add('hidden');
+                openCard();
+            }
+
+            if(btn.classList.contains('tryAgain')){
+                tryAgainWindow.classList.add('hidden');
+
+                const randomPictures = getRandomPictures();
+                randomSetupCard(randomPictures);
+
+                openCard();
+            }
+
+            if(btn.classList.contains('backToMenu')){
+                displayView(btn);
+                tryAgainWindow.classList.add('hidden');
+            }
+        })
+    });
+}
 
 export default buttonOperation;
