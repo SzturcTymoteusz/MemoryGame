@@ -36,14 +36,12 @@ const displayCard = (pictures) => {
 };
 
 const finishGame = (firstClick) => {
-    console.log('stop');
     timerStop();
     setTimeout(() => {
         tryAgainWindow.classList.remove('hidden');
         firstClick = false;
 
         displayScore();
-        return;
     }, 700)
 }
 
