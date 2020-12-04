@@ -1,0 +1,42 @@
+*
+    padding: 0
+    margin: 0
+    border: none
+    box-sizing: border-box
+
+.l-page
+    width: 100vw
+    height: 100vh
+    min-height: 500px
+    min-width: 500px
+    position: relative
+    display: grid
+    grid-template-columns: 1fr 1024px 1fr
+    grid-template-rows: 20px 1fr 20px
+    grid-template-areas: ". . ." ". views ." ". . ."
+    z-index: 1
+    background-image: url('/images/background.jpg')
+    background-size: 100% 100%
+
+    &__views-wrapper
+        grid-area: views
+        border: solid 5px black
+        position: relative
+
+.c-view
+    height: 100%
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    visibility: hidden
+    background-color: rgba(255, 255, 255, 0.6)
+    display: grid
+    grid-template-columns: 1fr 150px 400px 150px 1fr
+    grid-template-rows: 1fr 300px 100px 100px 100px 1fr
+
+.c-view__memory-logo
+    grid-area: logo
+    width: 100%
+    height: 100%

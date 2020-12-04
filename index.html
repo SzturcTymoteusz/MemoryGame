@@ -8,85 +8,93 @@
 
     <title>Memory</title>
 </head>
-<body>
-    <section class="container">
-        <img src="./images/background.jpg" alt="background1">
-        <main class="start-view">
-            <section class="menu view show">
-                <img src="./images/memory-logo.svg" class="memory-logo-img" alt="memory-logo">
-                <div class="btns-container">
-                    <button class="btn newGameBtn" data-id="game">new game</button>
-                    <button class="btn settingsBtn" data-id="settings">settings</button>
-                    <button class="btn helpBtn" data-id="help">help???</button>
+<body class="l-page">
+    <main class="l-page__views-wrapper">
+        <section class="c-view c-view--menu c-view--show">
+            <img src="./images/memory-logo.svg" class="c-view__memory-logo" alt="memory-logo">
+            <div class="c-view__btns-container">
+                <button class="c-view__btn newGameBtn" data-id="game">new game</button>
+                <button class="c-view__btn settingsBtn" data-id="settings">settings</button>
+                <button class="c-view__btn helpBtn" data-id="help">help???</button>
+            </div>
+        </section>
+
+        <section class="c-view c-view--settings ">
+            <img src="./images/memory-logo.svg" class="c-view__memory-logo" alt="memory-logo">
+
+            <div class="c-view__levels">
+                <p class="c-view__level-text">Level :</p>
+
+                <div class="c-view__level">
+                    <p class="c-view__level-content">easy</p>
+                    <div class="c-view__level-circle c-view__level-circle--selected" data-id="easy"></div>
                 </div>
-            </section>
-            <section class="help view">
-                <img src="./images/memory-logo.svg" class="memory-logo-img" alt="memory-logo">
-                <article class="option-help">
-                    <strong>Purpose of this memory game is to memorize the locations of the cards in the game and to make pairs of cards by turning them over 2 by 2. When the 2 cards match, it's a pair! You win the pair and have the right to play again, otherwise the cards are automatically turned face down and you have to make a new try.</strong>
-                </article>
-                <button class="btn backBtnHelp" data-id="menu">back</button>
-            </section>
-            <section class="settings view">
-                <img src="./images/memory-logo.svg" class="memory-logo-img" alt="memory-logo">
-                <div class="difficultyLevel">
-                    <p class="textLevel">Level :</p>
-                    <div class="easy">
-                        <p class="textEasy">easy</p>
-                        <div class="levelBtn easyCircle selected" data-id="easy"></div>
-                    </div>
-                    <div class="hard">
-                        <p class="textHard">hard</p>
-                        <div class="levelBtn hardCircle" data-id="hard"></div>
-                    </div>
+
+                <div class="c-view__level">
+                    <p class="c-view__level-content">hard</p>
+                    <div class="c-view__level-circle " data-id="hard"></div>
                 </div>
-                <div class="music">
-                    <p class="textMusic">Music</pclass>
-                    <div class="musicBtn">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <audio src="./music.mp3" loop></audio>
+
+            </div>
+            <div class="c-view__music">
+                <p class="c-view__music-text">Music</pclass>
+                <div class="c-view__music-btn">
+                    <i class="fas fa-check c-view__play-btn "></i>
                 </div>
-                <button class="btn backBtnSettings" data-id="menu">back</button>
-            </section>
-            <section class="game view">
-                <main class="card-content">
-                    <div class="start hidden">
-                        <p>Are you ready?</p>
-                        <button class="btn startBtn">Start</button>
-                    </div>
-                    <div class="card-container"></div>
-                    <div class="score hidden">
-                        <p>Congratulation!!!</p>
-                        <p>Your scores:</p>
-                        <p class="scoreText"><strong>Time:</strong> 0:23  <strong>Steps:</strong> 12</p>
-                        <div class="btn-container">
-                            <button class="btn tryAgain">Try again</button>
-                            <button class="btn backToMenu" data-id="menu">Menu</button>
-                        </div>
-                    </div>
-                </main>
-                <div class="displayContainer">
-                    <div class="display levelContainer">
-                        Level: <strong><span class="levelContainerText"></span></strong>
-                    </div>
-                    <div class="display stepsContainer">
-                        Steps: <strong><span class="stepsContainerText">0</span></strong>
-                    </div>
-                    <div class="display timeContainer">
-                        Time: <strong><span class="timeContainerText">0:00</span></strong>
-                    </div>
-                    <div class="display bestScore">
-                        <strong>The best score </strong><span class="timeContainerText">Time: <strong>0:00</strong> Steps: <strong>0</strong></span>
-                    </div>
-                    <div class="btnsDisplay">
-                        <button class="btn tryAgain">Retry</button>
+                <audio src="./music.mp3" loop></audio>
+            </div>
+            <button class="c-view__btn c-view__btn--back" data-id="menu">back</button>
+        </section>
+
+
+        <section class="c-view c-view--help ">
+            <img src="./images/memory-logo.svg" class="c-view__memory-logo" alt="memory-logo">
+            <article class="c-view__article">
+                <strong>Purpose of this memory game is to memorize the locations of the cards in the game and to make pairs of cards by turning them over 2 by 2. When the 2 cards match, it's a pair! You win the pair and have the right to play again, otherwise the cards are automatically turned face down and you have to make a new try.</strong>
+            </article>
+            <button class="c-view__btn c-view__btn--back" data-id="menu">back</button>
+        </section>
+
+        <!--
+
+        <section class="game view">
+            <main class="card-content">
+                <div class="start hidden">
+                    <p>Are you ready?</p>
+                    <button class="btn startBtn">Start</button>
+                </div>
+                <div class="card-container"></div>
+                <div class="score hidden">
+                    <p>Congratulation!!!</p>
+                    <p>Your scores:</p>
+                    <p class="scoreText"><strong>Time:</strong> 0:23  <strong>Steps:</strong> 12</p>
+                    <div class="btn-container">
+                        <button class="btn tryAgain">Try again</button>
                         <button class="btn backToMenu" data-id="menu">Menu</button>
                     </div>
                 </div>
-            </section>
-        </main>
-    </section>
+            </main>
+            <div class="displayContainer">
+                <div class="display levelContainer">
+                    Level: <strong><span class="levelContainerText"></span></strong>
+                </div>
+                <div class="display stepsContainer">
+                    Steps: <strong><span class="stepsContainerText">0</span></strong>
+                </div>
+                <div class="display timeContainer">
+                    Time: <strong><span class="timeContainerText">0:00</span></strong>
+                </div>
+                <div class="display bestScore">
+                    <strong>The best score </strong><span class="timeContainerText">Time: <strong>0:00</strong> Steps: <strong>0</strong></span>
+                </div>
+                <div class="btnsDisplay">
+                    <button class="btn tryAgain">Retry</button>
+                    <button class="btn backToMenu" data-id="menu">Menu</button>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
     <script src="./src/app.js" type="module"></script>
 </body>
 </html>

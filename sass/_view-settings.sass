@@ -1,0 +1,66 @@
+.c-view--settings
+    grid-template-areas: ". . . . ." '. logo logo logo .' '. . level . .' '. . music . .' '. . btn . .' ". . . . ."
+
+.c-view__btn--back
+    grid-area: btn
+    margin: auto
+
+.c-view
+    .c-view__levels
+        grid-area: level
+        display: flex
+        text-align: center
+
+        .c-view__level-text
+            flex-grow: 1
+            font-size: 40px
+            font-weight: bold
+            line-height: 95px
+
+        .c-view__level
+            flex-grow: 1
+            text-transform: uppercase
+            display: flex
+            justify-content: center
+            align-items: center
+
+            .c-view__level-content
+                flex-grow: 1
+                font-size: 25px
+                font-weight: bold
+
+            .c-view__level-circle
+                width: 30px
+                height: 30px
+                border-radius: 15px
+                border: 3px solid black
+                &:hover
+                    cursor: pointer
+
+            .c-view__level-circle--selected
+                background-color: #000000
+
+.c-view__music
+    grid-area: music
+    font-size: 40px
+    font-weight: bold
+    position: relative
+    .c-view__music-text
+        position: absolute
+        top: 0
+        left: 100px
+    .c-view__music-btn
+        position: absolute
+        top: 10px
+        left: 250px
+        width: 30px
+        height: 30px
+        border: 3px solid black
+        .c-view__play-btn
+            position: absolute
+            top: 0
+            left: 0
+            font-size: 25px
+            display: none
+        .c-view__play-btn-is-playing
+            display: block
