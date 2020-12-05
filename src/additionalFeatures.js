@@ -1,35 +1,35 @@
-import {gameLevel} from './level.js'
+import {game_level} from './level.js'
 
-const levelContainerText = document.querySelector('.levelContainerText');
-const stepsContainerText = document.querySelector('.stepsContainerText');
-const timeContainerText = document.querySelector('.timeContainerText');
-const scoreText = document.querySelector('.scoreText');
-const bestScoreText = document.querySelector('.bestScore');
-
-
+const result__level = document.querySelector('.result__level');
+const result__steps = document.querySelector('.result__steps');
+const result__time = document.querySelector('.result__time');
+const score_text = document.querySelector('.score__display');
+const best_score_text = document.querySelector('.result__best-score');
 
 
 
 
-const displayLevel = () => {
-    levelContainerText.textContent = gameLevel;
+
+
+const display_level = () => {
+    result__level.textContent = game_level;
 }
 
 
 
 
 
-const displaySteps = () => {
-    let currentNumberSteps = parseInt(stepsContainerText.textContent);
+const display_steps = () => {
+    let curren_number_steps = parseInt(result__steps.textContent);
 
-    currentNumberSteps++;
-    stepsContainerText.textContent = currentNumberSteps
+    curren_number_steps++;
+    result__steps.textContent = curren_number_steps
 }
 
 
-const clearTimer = () => {
-    stepsContainerText.textContent = '0';
-    timeContainerText.textContent = '0:00';
+const clear_timer = () => {
+    result__steps.textContent = '0';
+    result__time.textContent = '0:00';
     secs = 0;
     mins = 0;
 }
@@ -38,17 +38,21 @@ const clearTimer = () => {
 
 let secs = 0;
 let mins = 0;
-let canICount = true
+let can_i_count = true
 
-const displayTimer = () => {
+const change_can_i_count = () => {
+    can_i_count = true
+};
+
+const display_timer = () => {
     const time = setInterval(() => {
-        if(!canICount){
+        if(!can_i_count){
             clearInterval(time);
-            canICount = true;
+            can_i_count = true;
             return;
         }
 
-        timeContainerText.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
+        result__time.textContent = `${mins}:${secs<10?`0${secs}`:secs}`;
 
         if(secs === 60){
             secs = 0;
@@ -58,12 +62,12 @@ const displayTimer = () => {
     }, 1000)
 }
 
-const timerStop = () => {
-    canICount = false;
+const timer_stop = () => {
+    can_i_count = false;
 }
 
 
-let bestScore = {
+let best_score = {
     secs: 0,
     mins: 0,
     steps: 0
@@ -71,37 +75,45 @@ let bestScore = {
 
 
 
-const displayBestScore = ({secs, mins, steps}) =>{
-    const bestScoreSecs = bestScore.mins * 60 + bestScore.secs;
-    const lastScoreSecs = mins * 60 + secs;
+const display_best_score = ({secs, mins, steps}) =>{
+    const best_score_secs = best_score.mins * 60 + best_score.secs;
+    const last_score_secs = mins * 60 + secs;
 
-    if(lastScoreSecs < bestScoreSecs || (bestScore.secs === 0 && bestScore.mins === 0)){
-        bestScore.secs = secs;
-        bestScore.mins = mins;
-        bestScore.steps = steps;
+    if(last_score_secs < best_score_secs || (best_score.secs === 0 && best_score.mins === 0)){
+        best_score.secs = secs;
+        best_score.mins = mins;
+        best_score.steps = steps;
 
-        bestScoreText.innerHTML = `<strong>The best score </strong><span class="timeContainerText">Time: <strong>${mins}:${secs<10?`0${secs}`:secs}</strong> Steps: <strong>${steps}</strong></span>`
+        best_score_text.innerHTML = `
+        Time: <strong>${mins}:${secs<10?`0${secs}`:secs}</strong>
+        Steps: <strong>${steps}</strong>
+        `
     }
 }
 
 
 
 
-const displayScore = () => {
-    const steps = stepsContainerText.textContent;
-    const time = `${timeContainerText.textContent}`;
+const display_score = () => {
+    const steps = result__steps.textContent;
+    const time = `${result__time.textContent}`;
 
-    scoreText.innerHTML = `<strong>Time:</strong> ${time}  <strong>Steps:</strong> ${steps}`;
+    score_text.innerHTML = `
+        <strong>Time:</strong> ${time} <strong>Steps:</strong> ${steps}
+        `;
 
-    displayBestScore({secs: secs - 1 ,mins ,steps});
+    display_best_score({secs: secs - 1 ,mins ,steps});
 }
 
-const initBestTime = () => {
-    bestScoreText.innerHTML = `<strong>The best score </strong><span class="timeContainerText">Time: <strong>${bestScore.mins}:${bestScore.secs<10?`0${bestScore.secs}`:bestScore.secs}</strong> Steps: <strong>${bestScore.steps}</strong></span>`
+const init_best_time = () => {
+    best_score_text.innerHTML = `
+    Time: <strong>${best_score.mins}:${best_score.secs<10?`0${best_score.secs}`:best_score.secs}</strong>
+    Steps: <strong>${best_score.steps}</strong>
+    `
 }
 
-const resetBestTime = () => {
-    bestScore = {
+const reset_best_time = () => {
+    best_score = {
         secs: 0,
         mins: 0,
         steps: 0
@@ -113,12 +125,13 @@ const resetBestTime = () => {
 
 
 export {
-    displayLevel,
-    displaySteps,
-    displayTimer,
-    timerStop,
-    displayScore,
-    resetBestTime,
-    initBestTime,
-    clearTimer
+    display_level,
+    display_steps,
+    display_timer,
+    timer_stop,
+    display_score,
+    reset_best_time,
+    init_best_time,
+    clear_timer,
+    change_can_i_count
 }

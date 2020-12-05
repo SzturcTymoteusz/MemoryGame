@@ -1,0 +1,24 @@
+.help
+    grid-template-areas: ". . . . ." '. logo logo logo .' '. content content content .' '. content content content .' '. . btn . .' ". . . . ."
+
+.help__article
+    grid-area: content
+    font-size: 20px
+    text-align: justify
+    line-height: 150%
+    margin: auto
+
+.help__btn
+    grid-area: btn
+    position: relative
+    top: 50%
+    left: 50%
+    transform: translate(-50% , calc( -50% - 4px ))
+
+@media ( max-width:  740px)
+    .help__article
+        font-size: 16px
+
+    .help__btn
+        // margin: 0 auto
+        // bottom: 10%

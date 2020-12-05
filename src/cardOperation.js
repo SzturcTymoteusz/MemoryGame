@@ -1,33 +1,33 @@
-import {displaySteps, displayTimer, timerStop, displayScore} from './additionalFeatures.js';
+import {display_steps, display_timer, timer_stop, display_score, change_can_i_count} from './additionalFeatures.js';
 
-const cardContainer = document.querySelector('.card-container');
-const tryAgainWindow = document.querySelector('.score');
-
-
+const card_container = document.querySelector('.game__card-container');
+const alert_score = document.querySelector('.score');
 
 
-const randomSetupCard = (pictures) => {
-    const doublePictures = pictures.concat(pictures);
-    const doublePicturesLength = doublePictures.length
-    const newDoublePictures = [];
-    for(let i = 0; i < doublePicturesLength; i++){
-        const randomIndex = Math.floor(Math.random()*doublePictures.length);
-        newDoublePictures.push(doublePictures[randomIndex]);
-        doublePictures.splice(randomIndex,1);
+
+
+const random_setup_card = (pictures) => {
+    const double_pictures = pictures.concat(pictures);
+    const double_pictures_length = double_pictures.length
+    const new_double_pictures = [];
+    for(let i = 0; i < double_pictures_length; i++){
+        const random_index = Math.floor(Math.random()*double_pictures.length);
+        new_double_pictures.push(double_pictures[random_index]);
+        double_pictures.splice(random_index,1);
     }
 
-    displayCard(newDoublePictures);
+    display_card(new_double_pictures);
 }
 
-const displayCard = (pictures) => {
-    cardContainer.innerHTML = pictures.map((picture) => {
+const display_card = (pictures) => {
+    card_container.innerHTML = pictures.map((picture) => {
         return `
-        <div class="card" id="${picture.id}" data-opened = 'false' >
-            <div class="face front">
-                <span>Game</span>
+        <div class="card " id="${picture.id}" data-opened = 'false' >
+            <div class="card__face card__face--front">
+                <span class='card__logo'>Game</span>
             </div>
-            <div class="face back">
-                <img class="img" src=${picture.url}>
+            <div class="card__face card__face--back">
+                <img class="card__img" src='${picture.url}'>
             </div>
         </div>
         `
@@ -35,78 +35,78 @@ const displayCard = (pictures) => {
 
 };
 
-const finishGame = (firstClick) => {
-    timerStop();
+const finish_game = (first_click) => {
+    timer_stop();
+    display_score();
     setTimeout(() => {
-        tryAgainWindow.classList.remove('hidden');
-        firstClick = false;
+        alert_score.classList.remove('game__alert--hidden');
+        first_click = false;
 
-        displayScore();
     }, 700)
 }
 
-const openCard = () => {
+const open_card = () => {
     const cards = [...document.querySelectorAll('.card')];
-    let firstClickedCard = undefined;
-    let secondClickedCard = undefined;
-    let canIClick = true;
-    let firstClick = false;
+    let first_clicked_card = undefined;
+    let second_clicked_card = undefined;
+    let can_i_click = true;
+    let first_click = false;
 
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
-            const clickedCard = e.currentTarget;
+            const clicked_card = e.currentTarget;
 
-            if(!canIClick) return
+            if(!can_i_click) return
 
             // first open card will start the counter
-            if(!firstClick){
-                displayTimer()
-                firstClick = true;
+            if(!first_click){
+                change_can_i_count();
+                display_timer();
+                first_click = true;
             }
 
             //opening cards and assigment them to variable
-            if(clickedCard.dataset.opened === 'false' && canIClick){
-                clickedCard.classList.add('openCard');
+            if(clicked_card.dataset.opened === 'false' && can_i_click){
+                clicked_card.classList.add('card--opened');
 
-                secondClickedCard = (firstClickedCard) ? clickedCard : secondClickedCard;
-                firstClickedCard = (!firstClickedCard) ? clickedCard : firstClickedCard;
+                second_clicked_card = (first_clicked_card) ? clicked_card : second_clicked_card;
+                first_clicked_card = (!first_clicked_card) ? clicked_card : first_clicked_card;
 
             }
 
             // check value chosen cards
-            if(!firstClickedCard || !secondClickedCard) return;
+            if(!first_clicked_card || !second_clicked_card) return;
 
-            canIClick = false;
-            displaySteps()
+            can_i_click = false;
+            display_steps()
 
             setTimeout(() => {
 
                 // Match
-                if(firstClickedCard.id === secondClickedCard.id){
-                    firstClickedCard.dataset.opened = 'true';
-                    secondClickedCard.dataset.opened = 'true';
+                if(first_clicked_card.id === second_clicked_card.id){
+                    first_clicked_card.dataset.opened = 'true';
+                    second_clicked_card.dataset.opened = 'true';
 
                     //Check all cards, maybe user finished game
-                    const closedCard = cards.filter(card => card.dataset.opened === 'false');
-                    (closedCard[0] === undefined) ? finishGame(firstClick) : null;
+                    const closed_card = cards.filter(card => card.dataset.opened === 'false');
+                    (closed_card[0] === undefined) ? finish_game(first_click) : null;
 
-                    firstClickedCard = undefined;
-                    secondClickedCard = undefined;
+                    first_clicked_card = undefined;
+                    second_clicked_card = undefined;
 
-                    canIClick = true;
-
+                    can_i_click = true;
 
                     return;
                 }
 
                 // No match
-                firstClickedCard.classList.remove('openCard');
-                secondClickedCard.classList.remove('openCard');
+                first_clicked_card.classList.remove('card--opened');
+                second_clicked_card.classList.remove('card--opened');
 
-                firstClickedCard = undefined;
-                secondClickedCard = undefined;
+                first_clicked_card = undefined;
+                second_clicked_card = undefined;
 
-                canIClick = true
+                can_i_click = true
             }, 700)
         })
     })
@@ -115,6 +115,6 @@ const openCard = () => {
 
 
 export {
-    randomSetupCard,
-    openCard
+    random_setup_card,
+    open_card
 };

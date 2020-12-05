@@ -1,11 +1,11 @@
-const musicBtn = document.querySelector('.musicBtn');
+const music_btn = document.querySelector('.settings__music-btn');
 const audio = document.querySelector('audio');
 
 const music = () => {
-    musicBtn.addEventListener('click',(e)=>{
+    music_btn.addEventListener('click',(e)=>{
         const icon = e.currentTarget.children[0]
-        icon.classList.toggle('playMusic');
-        if(icon.classList.contains('playMusic')){
+        icon.classList.toggle('settings__play-is-playing');
+        if(icon.classList.contains('settings__play-is-playing')){
             audio.play();
         } else{
             audio.pause();

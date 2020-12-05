@@ -1,20 +1,20 @@
-import {resetBestTime} from './additionalFeatures.js'
+import {reset_best_time} from './additionalFeatures.js'
 
-const levelBtn = [...document.querySelectorAll('.levelBtn')];
-let gameLevel = 'easy';
+const level_btn = [...document.querySelectorAll('.level__circle')];
+let game_level = 'easy';
 
 const level = () => {
-    levelBtn.forEach((btn)=>{
+    level_btn.forEach((btn)=>{
         btn.addEventListener('click',(e)=>{
-            levelBtn.forEach((btn)=>{
-                btn.classList.remove('selected');
+            level_btn.forEach((btn)=>{
+                btn.classList.remove('level__circle--selected');
             });
-            e.target.classList.add('selected');
-            gameLevel = e.target.dataset.id;
-            resetBestTime();
+            e.target.classList.add('level__circle--selected');
+            game_level = e.target.dataset.id;
+            reset_best_time();
         })
     });
 }
 
 
-export {level, gameLevel};
+export {level, game_level};

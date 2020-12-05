@@ -1,0 +1,71 @@
+.settings
+    grid-template-areas: ". . . . ." '. logo logo logo .' '. . level . .' '. . music . .' '. . btn . .' ". . . . ."
+
+.settings__difficulty-level
+    grid-area: level
+    display: flex
+    justify-content: center
+    margin: 0 20px
+
+.settings__level-title
+    margin: 0 10px
+    font-size: 40px
+    font-weight: bold
+    line-height: 95px
+
+.settings__music
+    grid-area: music
+    font-size: 40px
+    font-weight: bold
+    position: relative
+    display: flex
+    justify-content: center
+
+.settings__music-text
+    margin-right: 10px
+
+.settings__music-btn
+    position: relative
+    top: 10px
+    left: 0
+    width: 30px
+    height: 30px
+    border: 3px solid black
+    &:hover
+        cursor: pointer
+
+.settings__play
+    position: absolute
+    top: 0
+    left: 0
+    font-size: 25px
+    display: none
+
+.settings__play-is-playing
+    display: block
+
+.settings__btn
+    grid-area: btn
+    position: relative
+    top: 50%
+    left: 50%
+    transform: translate(-50% , calc( -50% - 4px ))
+
+@media ( max-width: 740px )
+    .settings
+        grid-template-areas: ". . . . ." '. logo logo logo .' '. level level level .' '. . music . .' '. . btn . .' ". . . . ."
+
+    .settings__level-title
+        font-size: 25px
+        line-height: 95px
+
+    .settings__music-btn
+        width: 20px
+        height: 20px
+        top: 5px
+
+    .settings__music
+        font-size: 25px
+
+    .settings__play
+        font-size: 15px

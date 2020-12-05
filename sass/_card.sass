@@ -1,0 +1,53 @@
+.card
+    width: 80px
+    height: 90px
+    transition: transform 0.7s
+    transform-style: preserve-3d
+    perspective: 1000px
+    margin: 20px
+    &:hover
+        cursor: pointer
+
+.card__face
+    width: 100%
+    height: 100%
+    position: absolute
+    backface-visibility: hidden
+
+.card__face--front
+    background-color: #4d524e
+    color: white
+    z-index: 2
+    display: flex
+    align-items: center
+    justify-items: center
+    border: 2px solid black
+    border-radius: 20px
+    will-change: transform
+
+.card__logo
+    display: block
+    font-size: 36px
+    line-height: 36px
+    transform-origin: 45% 70%
+    transform: rotate(-45deg)
+
+.card__face--back
+    box-sizing: border-box
+    transform: rotateY(180deg)
+    padding: 1px
+    position: relative
+    padding: 1px
+    will-change: transform
+
+.card__img
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    border: 2px solid black
+    border-radius: 20px
+
+.card--opened
+    transform: rotateY(180deg)

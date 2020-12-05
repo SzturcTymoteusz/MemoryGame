@@ -1,0 +1,34 @@
+.level
+    margin: 0 10px
+    text-transform: uppercase
+    display: flex
+    justify-content: center
+    align-items: center
+
+.level__title
+    flex-grow: 1
+    font-size: 25px
+    font-weight: bold
+
+.level__circle
+    width: 30px
+    height: 30px
+    border-radius: 15px
+    border: 3px solid black
+    margin: 3px
+    &:hover
+        cursor: pointer
+
+.level__circle--selected
+    background-color: #000000
+
+@media (max-width: 740px)
+    .level__title
+        font-size: 17px
+    .level__circle
+        width: 20px
+        height: 20px
+
+@media (max-width: 450px)
+    .level
+        margin: 0 4px
