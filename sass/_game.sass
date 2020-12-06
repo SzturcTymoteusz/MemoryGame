@@ -4,7 +4,6 @@
     position: absolute
     top: 0
     left: 0
-    z-index: -1
     background-color: #6e8c7f
     display: grid
     grid-template-columns: 60px 1fr 600px 60px
@@ -23,8 +22,9 @@
     height: 100%
     display: flex
     flex-wrap: wrap
-    align-content: flex-start
-    z-index: -1
+    align-content: center
+    justify-items: center
+    justify-content: center
 
 .game__alert
     position: absolute
@@ -38,3 +38,13 @@
 @media ( max-width: 970px )
     .game
         grid-template-columns: 60px 250px 1fr 60px
+
+@media ( max-width: 760px )
+    .game
+        grid-template-columns: 20px 1fr 20px
+        grid-template-rows: 20px 1fr 220px 20px
+        grid-template-areas: '. . . ' '. gameScreen .' '. display . ' '. . . '
+
+@media ( max-width: 640px )
+    .game
+        grid-template-rows: 20px 1fr 150px 20px

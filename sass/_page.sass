@@ -15,7 +15,7 @@
     grid-template-rows: 20px 1fr 20px
     grid-template-areas: ". . ." ". views ." ". . ."
     z-index: 1
-    background-image: url('/images/background.jpg')
+    background-image: url('../images/background.jpg')
     background-size: 100% 100%
 
 .page__view
@@ -43,8 +43,14 @@
 
 @media ( max-width: 740px)
     .page
-        min-height: 560px
+        min-height: 630px
         min-width: 200px
     .page__view
         grid-template-columns: 10px 7fr 16fr 7fr 10px
         grid-template-rows: 1fr 200px 100px 125px 100px 1fr
+
+@media ( max-width: 380px)
+    .page
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr
+        grid-template-areas: " views "
