@@ -681,6 +681,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+<<<<<<< HEAD
 
 @media (max-width: 640px) {
   .result__element {
@@ -700,3 +701,6 @@
   }
 }
 /*# sourceMappingURL=style.css.map */
+=======
+/*# sourceMappingURL=style.css.map */
+>>>>>>> 1371cc393daab6d804a9ddfb8b8084d618e87b0e
