@@ -20,7 +20,7 @@
       grid-template-rows: 20px 1fr 20px;
       grid-template-areas: ". . ." ". views ." ". . .";
   z-index: 1;
-  background-image: url("/images/background.jpg");
+  background-image: url("./images/background.jpg");
   background-size: 100% 100%;
 }
 
