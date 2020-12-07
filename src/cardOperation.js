@@ -15,7 +15,6 @@ const random_setup_card = (pictures) => {
         new_double_pictures.push(double_pictures[random_index]);
         double_pictures.splice(random_index,1);
     }
-    console.log(new_double_pictures);
     display_card(new_double_pictures);
 }
 
@@ -26,7 +25,7 @@ const display_card = (pictures) => {
             <div class="card__face card__face--front">
                 <span class='card__logo'>Game</span>
             </div>
-            <div class="card__face card__face--back card--opened">
+            <div class="card__face card__face--back">
                 <canvas class="card__img" data-url="${picture.url}"></canvas>
             </div>
         </div>
@@ -35,16 +34,12 @@ const display_card = (pictures) => {
 
     const all_canvas = [...card_container.querySelectorAll('canvas')];
     all_canvas.forEach(canvas => {
-        console.log(canvas.width);
-        console.log(canvas.height);
         const context = canvas.getContext('2d');
         const img = new Image();
         img.addEventListener('load', () => {
             context.drawImage(img, 0, 0, canvas.width, canvas.height)
         })
         img.src = canvas.dataset.url;
-        img.width = `80px`;
-        img.height = `90px`;
     })
 
 };
