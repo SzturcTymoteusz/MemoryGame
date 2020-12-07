@@ -535,8 +535,7 @@
   -webkit-perspective: 1000px;
           perspective: 1000px;
   margin: 20px;
-  will-change: width;
-  will-change: height;
+  will-change: transform;
 }
 
 .card:hover {
