@@ -15,7 +15,7 @@ const random_setup_card = (pictures) => {
         new_double_pictures.push(double_pictures[random_index]);
         double_pictures.splice(random_index,1);
     }
-
+    console.log(new_double_pictures);
     display_card(new_double_pictures);
 }
 
@@ -27,7 +27,7 @@ const display_card = (pictures) => {
                 <span class='card__logo'>Game</span>
             </div>
             <div class="card__face card__face--back">
-                <img class="card__img" src='${picture.url}'>
+                <img loading="eager" class="card__img" src='${picture.url}'>
             </div>
         </div>
         `
