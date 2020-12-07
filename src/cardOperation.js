@@ -26,7 +26,7 @@ const display_card = (pictures) => {
             <div class="card__face card__face--front">
                 <span class='card__logo'>Game</span>
             </div>
-            <div class="card__face card__face--back">
+            <div class="card__face card__face--back card--opened">
                 <canvas class="card__img" data-url="${picture.url}"></canvas>
             </div>
         </div>
@@ -43,6 +43,8 @@ const display_card = (pictures) => {
             context.drawImage(img, 0, 0, canvas.width, canvas.height)
         })
         img.src = canvas.dataset.url;
+        img.width = `80px`;
+        img.height = `90px`;
     })
 
 };
