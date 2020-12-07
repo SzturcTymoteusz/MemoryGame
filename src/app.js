@@ -12,5 +12,5 @@ const init = async () => {
     music();
 }
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('load', init);
 
