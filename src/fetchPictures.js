@@ -11,7 +11,7 @@ const  fetch_pictures = async () => {
     }
 
     return pictures;
-}
+};
 
 
 export default fetch_pictures;

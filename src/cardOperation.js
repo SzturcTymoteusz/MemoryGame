@@ -1,4 +1,5 @@
-import {display_steps, display_timer, timer_stop, display_score, change_can_i_count} from './additionalFeatures.js';
+import {display_steps} from './additionalFeatures.js';
+import {start_timer, stop_timer, display_score, time} from './timer.js'
 
 const card_container = document.querySelector('.game__card-container');
 const alert_score = document.querySelector('.score');
@@ -10,11 +11,13 @@ const random_setup_card = (pictures) => {
     const double_pictures = pictures.concat(pictures);
     const double_pictures_length = double_pictures.length
     const new_double_pictures = [];
+
     for(let i = 0; i < double_pictures_length; i++){
         const random_index = Math.floor(Math.random()*double_pictures.length);
         new_double_pictures.push(double_pictures[random_index]);
         double_pictures.splice(random_index,1);
     }
+
     display_card(new_double_pictures);
 }
 
@@ -26,29 +29,21 @@ const display_card = (pictures) => {
                 <span class='card__logo'>Game</span>
             </div>
             <div class="card__face card__face--back">
-                <canvas class="card__img" data-url="${picture.url}"></canvas>
+                <img loading="eager" class="card__img" src='${picture.url}'>
             </div>
         </div>
         `
     }).join('');
 
-    const all_canvas = [...card_container.querySelectorAll('canvas')];
-    all_canvas.forEach(canvas => {
-        const context = canvas.getContext('2d');
-        const img = new Image();
-        img.addEventListener('load', () => {
-            context.drawImage(img, 0, 0, canvas.width, canvas.height)
-        })
-        img.src = canvas.dataset.url;
-    })
-
 };
 
 const finish_game = (first_click) => {
-    timer_stop();
-    display_score();
     setTimeout(() => {
         alert_score.classList.remove('game__alert--hidden');
+
+        stop_timer();
+        display_score();
+
         first_click = false;
 
     }, 700)
@@ -67,11 +62,10 @@ const open_card = () => {
 
             if(!can_i_click) return
 
-
             // first open card will start the counter
             if(!first_click){
-                change_can_i_count();
-                display_timer();
+                time.can_i_count = true;
+                start_timer();
                 first_click = true;
             }
 
@@ -88,7 +82,7 @@ const open_card = () => {
             if(!first_clicked_card || !second_clicked_card) return;
 
             can_i_click = false;
-            display_steps()
+            display_steps();
 
             setTimeout(() => {
 
@@ -120,7 +114,7 @@ const open_card = () => {
             }, 700)
         })
     })
-}
+};
 
 
 

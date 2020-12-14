@@ -1,10 +1,11 @@
+import { display_level } from './additionalFeatures.js';
 import { random_setup_card, open_card } from './cardOperation.js';
 import {get_random_pictures} from './setupLocalStorage.js';
-import {display_level, init_best_time, clear_timer, timer_stop} from './additionalFeatures.js'
+import {clear_score, stop_timer} from './timer.js';
 
 
 const all_btns = [...document.querySelectorAll('.btn')];
-const all_views = [...document.querySelectorAll('.page__view')]
+const all_views = [...document.querySelectorAll('.page__view')];
 
 
 const alert_start = document.querySelector('.start');
@@ -20,16 +21,7 @@ const display_view = (clicked_view) => {
     const view = document.querySelector(`.${clicked_view.dataset.id}`);
 
     view.classList.add('page__view--show');
-}
-
-const display_current_score = () => {
-    display_level();
-    init_best_time();
-
-    result__steps.textContent = '0';
-    result__time.textContent = '0:00';
-}
-
+};
 
 const button_operation = () => {
     all_btns.forEach((btn)=>{
@@ -43,8 +35,8 @@ const button_operation = () => {
                 const random_pictures = get_random_pictures();
                 random_setup_card(random_pictures);
 
-                display_current_score();
-                clear_timer();
+                clear_score();
+                display_level();
             }
 
             if(btn.dataset.id === 'settings') display_view(btn);
@@ -54,9 +46,9 @@ const button_operation = () => {
 
             if(btn.dataset.id === 'menu') {
                 display_view(btn);
-                timer_stop();
-                clear_timer();
                 alert_score.classList.add('game__alert--hidden');
+                stop_timer();
+                clear_score();
             };
 
 
@@ -67,11 +59,12 @@ const button_operation = () => {
 
 
             if(btn.dataset.id === 'try_again'){
-                if(!alert_start.classList.contains('game__alert--hidden')) return
+                stop_timer();
+                clear_score();
 
-                if(alert_score.classList.contains('game__alert--hidden')) timer_stop();
-                clear_timer();
+                console.log('work')
 
+                alert_start.classList.add('game__alert--hidden');
                 alert_score.classList.add('game__alert--hidden');
 
                 const random_pictures = get_random_pictures();
@@ -82,6 +75,6 @@ const button_operation = () => {
 
         })
     });
-}
+};
 
 export default button_operation;

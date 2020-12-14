@@ -1,4 +1,4 @@
-import {reset_best_time} from './additionalFeatures.js'
+import {reset_best_time} from './timer.js'
 
 const level_btn = [...document.querySelectorAll('.level__circle')];
 let game_level = 'easy';
@@ -14,7 +14,7 @@ const level = () => {
             reset_best_time();
         })
     });
-}
+};
 
 
 export {level, game_level};
