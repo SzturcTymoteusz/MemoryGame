@@ -2,7 +2,7 @@ const  fetch_pictures = async () => {
     const pictures = [];
 
     for(let i = 1; i <= 200; i++) {
-        const url = 'https://picsum.photos/100?random=' + i;
+        const url = 'https://picsum.photos/45/50?random=' + i;
 
         pictures.push({
             id: i,
