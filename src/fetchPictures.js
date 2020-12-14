@@ -1,14 +1,16 @@
 const  fetch_pictures = async () => {
-    const url = 'https://picsum.photos/v2/list?page=2&limit=50';
-    const data = await fetch(url);
-    const pictures = await data.json();
-    const new_pictures = pictures.map(picture => {
-        return {
-            id:picture.id,
-            url:picture.download_url
-        }
-    });
-    return new_pictures;
+    const pictures = [];
+
+    for(let i = 1; i <= 200; i++) {
+        const url = 'https://picsum.photos/100?random=' + i;
+
+        pictures.push({
+            id: i,
+            url
+        })
+    }
+
+    return pictures;
 }
 
 
