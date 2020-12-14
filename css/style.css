@@ -452,7 +452,7 @@
 
 @media (max-width: 500px) {
   .start {
-    width: 200px;
+    width: 250px;
     height: 120px;
     border-radius: 14px;
   }
@@ -535,6 +535,7 @@
   -webkit-perspective: 1000px;
           perspective: 1000px;
   margin: 20px;
+  will-change: transform;
 }
 
 .card:hover {
@@ -573,6 +574,7 @@
           transform-origin: 45% 70%;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+  will-change: transform;
 }
 
 .card__face--back {
@@ -594,6 +596,7 @@
   width: 100%;
   border: 2px solid black;
   border-radius: 20px;
+  will-change: transform;
 }
 
 .card--opened {
@@ -608,8 +611,8 @@
     height: 80px;
   }
   .card__logo {
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 28px;
+    line-height: 28px;
   }
 }
 
@@ -619,8 +622,8 @@
     height: 67.5px;
   }
   .card__logo {
-    font-size: 26px;
-    line-height: 26px;
+    font-size: 24px;
+    line-height: 24px;
   }
 }
 
@@ -630,8 +633,8 @@
     height: 50px;
   }
   .card__logo {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 16px;
   }
   .card__face--front {
     border-radius: 10px;
@@ -681,7 +684,6 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-<<<<<<< HEAD
 
 @media (max-width: 640px) {
   .result__element {
@@ -701,6 +703,3 @@
   }
 }
 /*# sourceMappingURL=style.css.map */
-=======
-/*# sourceMappingURL=style.css.map */
->>>>>>> 1371cc393daab6d804a9ddfb8b8084d618e87b0e

@@ -15,7 +15,6 @@ const random_setup_card = (pictures) => {
         new_double_pictures.push(double_pictures[random_index]);
         double_pictures.splice(random_index,1);
     }
-    console.log(new_double_pictures);
     display_card(new_double_pictures);
 }
 
@@ -27,11 +26,21 @@ const display_card = (pictures) => {
                 <span class='card__logo'>Game</span>
             </div>
             <div class="card__face card__face--back">
-                <img loading="eager" class="card__img" src='${picture.url}'>
+                <canvas class="card__img" data-url="${picture.url}"></canvas>
             </div>
         </div>
         `
     }).join('');
+
+    const all_canvas = [...card_container.querySelectorAll('canvas')];
+    all_canvas.forEach(canvas => {
+        const context = canvas.getContext('2d');
+        const img = new Image();
+        img.addEventListener('load', () => {
+            context.drawImage(img, 0, 0, canvas.width, canvas.height)
+        })
+        img.src = canvas.dataset.url;
+    })
 
 };
 
@@ -57,6 +66,7 @@ const open_card = () => {
             const clicked_card = e.currentTarget;
 
             if(!can_i_click) return
+
 
             // first open card will start the counter
             if(!first_click){
