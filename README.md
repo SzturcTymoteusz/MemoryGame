@@ -13,3 +13,4 @@ This project is a simple memory game. The object of the game is to find all pair
 ## Setup
 
 To run this project, open link and enjoy the game.
+https://szturctymoteusz.github.io/MemoryGame/
